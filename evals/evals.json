@@ -1,0 +1,59 @@
+{
+  "skill_name": "atomic-design",
+  "evals": [
+    {
+      "id": 0,
+      "name": "inventory-messy-react-app",
+      "prompt": "Our React storefront has grown organically for three years and every team styled their own corner. Buttons, cards and inputs look different on every page and nobody agrees what to call anything. Before we commit budget to a design system I need a UI audit of the codebase at evals/fixtures/messy-app that shows leadership the duplication as data: how many button styles, how many greys, how many type sizes, which values are near-duplicates that should merge, and a first proposal for canonical names. Put everything under design-system/inventory/ inside that app and give me a one-page summary I can paste into a slide.",
+      "expected_output": "design-system/inventory/scan.md and scan.json produced by a static scan, a filled report.md with per-category findings, counts, near-duplicate merge candidates, naming candidates with aliases, and a short leadership summary. Names follow structure-not-content rule. Distinguishes atoms/molecules/organisms when proposing names.",
+      "files": [
+        "evals/fixtures/messy-app"
+      ],
+      "assertions": [
+        "scan.json exists under design-system/inventory and parses as JSON with per-category value counts",
+        "report names at least 5 distinct button styles found in the codebase",
+        "report flags #1a73e8 and #1b74e9 as near-duplicate colors to merge",
+        "report flags the three h1 sizes (32px, 30px, 28px) as a type-scale inconsistency",
+        "proposed canonical names are structural (button, card, text-field), with no page- or content-based names like checkout-button or product-card",
+        "proposed patterns are placed in atomic levels (atom, molecule, organism) at least for button, card, search form, header",
+        "summary.md exists, is at most 60 lines, and contains the headline counts (buttons, colors, type sizes)",
+        "report states next steps for a working group: keep/kill/merge decisions, canonical names, path to a living library, and notes the static scan's limits",
+        "report includes at least one WCAG contrast finding on a real text/background or border pair found in the code, with the ratio and the file:line"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "tokens-two-brands-light-dark",
+      "prompt": "We run two products on one platform: Northwind (brand colour a deep teal, #0b6e6e) and Contoso (brand colour a warm orange, #d9541e). They must share one component library but each must look like its own brand, both need light and dark mode, and our accessibility team requires WCAG 2.2 AA on every text and surface pairing. Set up the design token source of truth and the theming architecture for this, in a standards-based format our Figma team and our front-end team can both consume, and explain how a component is written so that it works for both brands and both schemes without any brand-specific code.",
+      "expected_output": "DTCG 2025.10 JSON files: primitives per brand with oklch colour objects and hex fallback, one shared semantic set with scheme-independent role names, a dark override set, a resolver file with brand and scheme modifiers, a Style Dictionary config or equivalent build plan, generated or example CSS using @layer and light-dark() with [data-brand] scoping, a validation run, contrast check results for key pairs, and a short explanation of the semantic contract that keeps components brand-free.",
+      "files": [],
+      "assertions": [
+        "token files use DTCG syntax: tokens carry $value and $type, and color $value is an object with colorSpace and components (2025.10 shape)",
+        "a semantic tier shared by all brands exists with brand-neutral role names, and primitives are separated per brand (northwind, contoso)",
+        "a resolver file exists with version 2025.10 and modifiers for brand and color scheme",
+        "CSS output declares @layer and uses light-dark() or a [data-theme] override, and scopes brand primitives with [data-brand]",
+        "a validation step was run on the token files and its result is recorded (validate_tokens.py output or equivalent)",
+        "contrast results list text-on-surface pairs for both brands and both schemes with ratios, all text pairs at or above 4.5:1",
+        "EXPLANATION.md states that components read semantic tokens only and that adding a brand requires no component code changes",
+        "no brand hex (#0b6e6e, #d9541e) appears in semantic or component token files, example component CSS, or generated CSS outside the per-brand primitives output (prose docs may quote them)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "governance-federated-enterprise",
+      "prompt": "I lead a 6-person design system team at a company with about 40 product teams across three countries. The system exists and is adopted by maybe a third of teams, but changes are chaotic: teams fork components, nobody knows when something is deprecated, and requests come in through DMs. Write the governance and contribution model for us: who decides what, how a new component request flows, how we deprecate and version, how we communicate change, and how we measure whether it's working. Make it something I can put in the repo and point people at.",
+      "expected_output": "A governance doc plus CONTRIBUTING.md and supporting templates (decision tree, deprecation notice, RFC, changelog, team model) with: makers vs users roles, a federated-with-central-core team model (attributed to Nathan Curtis), the governance questions answered, a modify/add/remove workflow with alpha/beta/stable stages and the one-off-until-second-team rule, semver plus deprecation window, communication channels and rituals, and adoption/health signals. Cites the book for the parts that come from it.",
+      "files": [],
+      "assertions": [
+        "defines makers vs users (core team vs consuming teams) and who approves changes",
+        "names a team model, federated with a central core, attributed to Nathan Curtis",
+        "new-pattern request flow has explicit stages (proposal, alpha, beta, stable or equivalent) and the rule that a one-off becomes a pattern when a second team needs it",
+        "deprecation policy states a window (releases or days), a replacement pointer, and semantic versioning",
+        "communication plan names a changelog, a roadmap, a channel, and a recurring meeting",
+        "lists at least three measurable health or adoption signals",
+        "CONTRIBUTING.md exists and tells a contributor how to open a request and a PR",
+        "cites Atomic Design (chapter 5) for the governance ideas taken from the book"
+      ]
+    }
+  ]
+}

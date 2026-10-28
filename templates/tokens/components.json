@@ -1,0 +1,57 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Component tier: one group per component, aliasing semantic roles only. Add a component token only when the component needs a knob the semantic role does not give it; otherwise use the semantic role directly in CSS.",
+  "button": {
+    "background": {
+      "$type": "color",
+      "primary": {
+        "default": {"$value": "{color.action.background.primary.default}"},
+        "hover": {"$value": "{color.action.background.primary.hover}"},
+        "active": {"$value": "{color.action.background.primary.active}"},
+        "disabled": {"$value": "{color.action.background.primary.disabled}"}
+      },
+      "secondary": {
+        "default": {"$value": "{color.action.background.secondary.default}"},
+        "hover": {"$value": "{color.action.background.secondary.hover}"},
+        "active": {"$value": "{color.action.background.secondary.active}"}
+      }
+    },
+    "foreground": {
+      "$type": "color",
+      "primary": {
+        "default": {"$value": "{color.action.foreground.primary.default}"},
+        "disabled": {"$value": "{color.action.foreground.primary.disabled}"}
+      },
+      "secondary": {"default": {"$value": "{color.action.foreground.secondary.default}"}}
+    },
+    "padding": {
+      "$type": "dimension",
+      "block": {"$value": "{space.inset.sm}"},
+      "inline": {"$value": "{space.inset.md}"}
+    },
+    "radius": {"$type": "dimension", "$value": "{radius.control}"},
+    "typography": {"$type": "typography", "$value": "{typography.label}"},
+    "transition-duration": {"$type": "duration", "$value": "{motion.duration.interaction}"}
+  },
+  "input": {
+    "background": {"$type": "color", "default": {"$value": "{color.surface.default}"}},
+    "foreground": {
+      "$type": "color",
+      "default": {"$value": "{color.text.default}"},
+      "placeholder": {"$value": "{color.text.muted}"}
+    },
+    "border": {
+      "$type": "color",
+      "default": {"$value": "{color.border.strong}"},
+      "focus": {"$value": "{color.border.focus}"},
+      "invalid": {"$value": "{color.status.foreground.danger}"}
+    },
+    "padding": {
+      "$type": "dimension",
+      "block": {"$value": "{space.inset.sm}"},
+      "inline": {"$value": "{space.inset.md}"}
+    },
+    "radius": {"$type": "dimension", "$value": "{radius.control}"},
+    "typography": {"$type": "typography", "$value": "{typography.body}"}
+  }
+}

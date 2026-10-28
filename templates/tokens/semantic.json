@@ -1,0 +1,103 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Semantic tier: the role contract every brand shares. Aliases only, never raw values. Names describe purpose and never mention a scheme (no 'dark', 'white', 'blue'). Light values live here; semantic.dark.json overrides the scheme-dependent ones. Components read these roles, never primitives.",
+  "color": {
+    "$type": "color",
+    "surface": {
+      "default": {"$value": "{color.neutral.0}", "$description": "Page and card background.", "$extensions": {"com.<org>.forcedColors": "Canvas"}},
+      "subtle": {"$value": "{color.neutral.50}", "$description": "Recessed areas: sidebars, table stripes, wells."},
+      "raised": {"$value": "{color.neutral.0}", "$description": "Popovers, menus, dialogs; pair with an elevation token."},
+      "inverse": {"$value": "{color.neutral.900}", "$description": "High-emphasis inverted areas such as toasts and tooltips."}
+    },
+    "text": {
+      "default": {"$value": "{color.neutral.900}", "$description": "Body and heading text. 4.5:1 or more on every surface.", "$extensions": {"com.<org>.forcedColors": "CanvasText"}},
+      "muted": {"$value": "{color.neutral.600}", "$description": "Secondary text: help, captions, metadata. 4.5:1 or more on surface.default and surface.subtle."},
+      "subtle": {"$value": "{color.text.muted}", "$description": "Old name for secondary text.", "$deprecated": "Renamed for clarity; use {color.text.muted} instead. Removed in the next major."},
+      "inverse": {"$value": "{color.neutral.0}", "$description": "Text on surface.inverse."},
+      "link": {"$value": "{color.accent.600}", "$description": "Inline links. Keep an underline; color alone is not enough.", "$extensions": {"com.<org>.forcedColors": "LinkText"}}
+    },
+    "border": {
+      "default": {"$value": "{color.neutral.200}", "$description": "Decorative dividers. Not for control boundaries (below 3:1)."},
+      "strong": {"$value": "{color.neutral.500}", "$description": "Control boundaries such as input outlines. 3:1 or more against adjacent surfaces.", "$extensions": {"com.<org>.forcedColors": "CanvasText"}},
+      "focus": {"$value": "{color.accent.600}", "$description": "Focus indicator. 3:1 or more against adjacent surfaces.", "$extensions": {"com.<org>.forcedColors": "Highlight"}}
+    },
+    "action": {
+      "background": {
+        "primary": {
+          "default": {"$value": "{color.accent.600}", "$description": "Primary action fill at rest.", "$extensions": {"com.<org>.forcedColors": "ButtonFace"}},
+          "hover": {"$value": "{color.accent.700}", "$description": "Primary action fill on hover."},
+          "active": {"$value": "{color.accent.800}", "$description": "Primary action fill while pressed."},
+          "disabled": {"$value": "{color.neutral.200}", "$description": "Primary action fill when disabled (exempt from contrast minimums).", "$extensions": {"com.<org>.forcedColors": "ButtonFace"}}
+        },
+        "secondary": {
+          "default": {"$value": "{color.neutral.100}", "$description": "Secondary action fill at rest."},
+          "hover": {"$value": "{color.neutral.200}", "$description": "Secondary action fill on hover."},
+          "active": {"$value": "{color.neutral.300}", "$description": "Secondary action fill while pressed."}
+        }
+      },
+      "foreground": {
+        "primary": {
+          "default": {"$value": "{color.neutral.0}", "$description": "Label and icon on primary action fills. 4.5:1 or more on default, hover and active.", "$extensions": {"com.<org>.forcedColors": "ButtonText"}},
+          "disabled": {"$value": "{color.neutral.500}", "$description": "Label on a disabled primary action.", "$extensions": {"com.<org>.forcedColors": "GrayText"}}
+        },
+        "secondary": {
+          "default": {"$value": "{color.neutral.900}", "$description": "Label and icon on secondary action fills. 4.5:1 or more on every state."}
+        }
+      }
+    },
+    "status": {
+      "foreground": {
+        "danger": {"$value": "{color.red.700}", "$description": "Error text and icons. Pair with an icon or text; never color alone."},
+        "success": {"$value": "{color.green.700}", "$description": "Success text and icons."},
+        "warning": {"$value": "{color.amber.700}", "$description": "Warning text and icons."},
+        "info": {"$value": "{color.blue.700}", "$description": "Informational text and icons."}
+      },
+      "background": {
+        "danger": {"$value": "{color.red.100}", "$description": "Error banner fill; status.foreground.danger reads 4.5:1 or more on it."},
+        "success": {"$value": "{color.green.100}", "$description": "Success banner fill."},
+        "warning": {"$value": "{color.amber.100}", "$description": "Warning banner fill."},
+        "info": {"$value": "{color.blue.100}", "$description": "Informational banner fill."}
+      }
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "inset": {
+      "sm": {"$value": "{space.2}", "$description": "Padding inside compact controls. Density modifier shrinks it."},
+      "md": {"$value": "{space.3}", "$description": "Default control and cell padding."},
+      "lg": {"$value": "{space.4}", "$description": "Padding inside cards and dialogs."}
+    },
+    "gap": {
+      "sm": {"$value": "{space.2}", "$description": "Gap between tightly related items, such as an icon and its label."},
+      "md": {"$value": "{space.4}", "$description": "Gap between items in a group."},
+      "lg": {"$value": "{space.8}", "$description": "Gap between sections."}
+    }
+  },
+  "radius": {
+    "$type": "dimension",
+    "control": {"$value": "{radius.md}", "$description": "Buttons, inputs, chips."},
+    "container": {"$value": "{radius.lg}", "$description": "Cards, dialogs, popovers."}
+  },
+  "elevation": {
+    "$type": "shadow",
+    "raised": {"$value": "{shadow.sm}", "$description": "Cards that sit above the page. Never the only boundary: shadows vanish in forced colors."},
+    "overlay": {"$value": "{shadow.md}", "$description": "Menus, popovers, dialogs."}
+  },
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "interaction": {"$value": "{duration.fast}", "$description": "Hover and press feedback."},
+      "transition": {"$value": "{duration.base}", "$description": "Panels and overlays entering or leaving."}
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "standard": {"$value": "{easing.standard}", "$description": "Default easing for UI motion."}
+    }
+  },
+  "typography": {
+    "$type": "typography",
+    "body": {"$value": {"fontFamily": "{font.family.sans}", "fontSize": "{font.size.100}", "fontWeight": "{font.weight.regular}", "letterSpacing": "{font.letter-spacing.normal}", "lineHeight": "{font.line-height.normal}"}, "$description": "Running text."},
+    "label": {"$value": {"fontFamily": "{font.family.sans}", "fontSize": "{font.size.087}", "fontWeight": "{font.weight.medium}", "letterSpacing": "{font.letter-spacing.normal}", "lineHeight": "{font.line-height.tight}"}, "$description": "Control labels and buttons."},
+    "heading": {"$value": {"fontFamily": "{font.family.sans}", "fontSize": "{font.size.225}", "fontWeight": "{font.weight.bold}", "letterSpacing": "{font.letter-spacing.tight}", "lineHeight": "{font.line-height.tight}"}, "$description": "Page title at its largest size. Fluid sizing is done in CSS with clamp(); see phase 3 reference."}
+  }
+}

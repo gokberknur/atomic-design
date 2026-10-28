@@ -1,0 +1,7 @@
+.checkout h1 { font-size: 30px; font-weight: 700; }
+.checkout .primary-button { padding: 10px 18px; border-radius: 6px; background: #1b74e9; color: white; font-size: 15px; }
+.checkout .cancel { padding: 8px 14px; border-radius: 3px; background: #f0f0f0; color: #333; }
+.checkout .summary { padding: 15px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+.checkout input { border: 1px solid #ccc; border-radius: 4px; padding: 8px; font-size: 14px; }
+.checkout .error { color: #d93025; font-size: 12px; }
+@media (max-width: 768px) { .checkout { padding: 12px; } }

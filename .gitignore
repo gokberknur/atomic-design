@@ -1,0 +1,7 @@
+research/
+node_modules/
+.DS_Store
+*-workspace/
+.agents/
+.claude/skills/
+skills-lock.json

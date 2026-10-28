@@ -1,0 +1,191 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Primitive tier for brand <brand>. Raw values; the only aliases are shadow colors pointing at this same file. Copy per brand as primitives.<brand>.json and keep every token path identical across brands; only values change. Replace the accent ramp and font stacks with the brand's own.",
+  "color": {
+    "$type": "color",
+    "$description": "OKLCH ramps; hex is the sRGB fallback for tools and platforms without OKLCH. Steps are lightness, not usage.",
+    "neutral": {
+      "0": {"$value": {"colorSpace": "oklch", "components": [1.0, 0, 0], "hex": "#ffffff"}},
+      "50": {"$value": {"colorSpace": "oklch", "components": [0.985, 0.005, 260], "hex": "#f8fafe"}},
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.005, 260], "hex": "#f2f4f8"}},
+      "200": {"$value": {"colorSpace": "oklch", "components": [0.928, 0.007, 260], "hex": "#e4e7ec"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.013, 260], "hex": "#d0d5de"}},
+      "400": {"$value": {"colorSpace": "oklch", "components": [0.75, 0.023, 260], "hex": "#a6afbd"}},
+      "500": {"$value": {"colorSpace": "oklch", "components": [0.62, 0.029, 260], "hex": "#7c8798"}},
+      "600": {"$value": {"colorSpace": "oklch", "components": [0.52, 0.03, 260], "hex": "#5f6a7b"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.028, 260], "hex": "#4a5362"}},
+      "800": {"$value": {"colorSpace": "oklch", "components": [0.33, 0.022, 260], "hex": "#2f3641"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.014, 260], "hex": "#1b1f26"}},
+      "950": {"$value": {"colorSpace": "oklch", "components": [0.17, 0.007, 260], "hex": "#0e0f13"}}
+    },
+    "accent": {
+      "50": {"$value": {"colorSpace": "oklch", "components": [0.985, 0.007, 264], "hex": "#f8faff"}},
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.015, 264], "hex": "#eff4ff"}},
+      "200": {"$value": {"colorSpace": "oklch", "components": [0.928, 0.034, 264], "hex": "#dce8ff"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.062, 264], "hex": "#c0d5ff"}},
+      "400": {"$value": {"colorSpace": "oklch", "components": [0.75, 0.127, 264], "hex": "#85acfe"}},
+      "500": {"$value": {"colorSpace": "oklch", "components": [0.62, 0.204, 264], "hex": "#447cff"}},
+      "600": {"$value": {"colorSpace": "oklch", "components": [0.52, 0.239, 264], "hex": "#1b54ef"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.223, 264], "hex": "#0b3cca"}},
+      "800": {"$value": {"colorSpace": "oklch", "components": [0.33, 0.173, 264], "hex": "#03248c"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.113, 264], "hex": "#031753"}},
+      "950": {"$value": {"colorSpace": "oklch", "components": [0.17, 0.058, 264], "hex": "#040d28"}}
+    },
+    "red": {
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.016, 25], "hex": "#fff0ef"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.068, 25], "hex": "#ffc4be"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.178, 25], "hex": "#9e0117"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.097, 25], "hex": "#420005"}}
+    },
+    "blue": {
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.018, 250], "hex": "#eef4ff"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.07, 250], "hex": "#b9d0f5"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.17, 255], "hex": "#1f4aa8"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.09, 255], "hex": "#0c1f4e"}}
+    },
+    "green": {
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.028, 150], "hex": "#e8faea"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.078, 150], "hex": "#b1e4ba"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.121, 150], "hex": "#00642b"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.066, 150], "hex": "#00270d"}}
+    },
+    "amber": {
+      "100": {"$value": {"colorSpace": "oklch", "components": [0.967, 0.026, 75], "hex": "#fff2e1"}},
+      "300": {"$value": {"colorSpace": "oklch", "components": [0.872, 0.073, 75], "hex": "#f2cf9f"}},
+      "700": {"$value": {"colorSpace": "oklch", "components": [0.44, 0.092, 75], "hex": "#704a02"}},
+      "900": {"$value": {"colorSpace": "oklch", "components": [0.24, 0.051, 75], "hex": "#2d1b00"}}
+    },
+    "black-alpha": {
+      "12": {"$value": {"colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.12, "hex": "#000000"}},
+      "24": {"$value": {"colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.24, "hex": "#000000"}}
+    }
+  },
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": {
+        "$value": ["system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        "$description": "Put the brand face first; keep the system fallbacks."
+      },
+      "mono": {"$value": ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"]}
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "regular": {"$value": 400},
+      "medium": {"$value": 500},
+      "semibold": {"$value": 600},
+      "bold": {"$value": 700}
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "rem so text follows the user's font-size setting.",
+      "075": {"$value": {"value": 0.75, "unit": "rem"}},
+      "087": {"$value": {"value": 0.875, "unit": "rem"}},
+      "100": {"$value": {"value": 1, "unit": "rem"}},
+      "112": {"$value": {"value": 1.125, "unit": "rem"}},
+      "125": {"$value": {"value": 1.25, "unit": "rem"}},
+      "150": {"$value": {"value": 1.5, "unit": "rem"}},
+      "187": {"$value": {"value": 1.875, "unit": "rem"}},
+      "225": {"$value": {"value": 2.25, "unit": "rem"}},
+      "300": {"$value": {"value": 3, "unit": "rem"}}
+    },
+    "line-height": {
+      "$type": "number",
+      "tight": {"$value": 1.2},
+      "normal": {"$value": 1.5}
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "tight": {"$value": {"value": -0.01, "unit": "rem"}},
+      "normal": {"$value": {"value": 0, "unit": "rem"}}
+    }
+  },
+  "space": {
+    "$type": "dimension",
+    "$description": "4px grid expressed in rem.",
+    "0": {"$value": {"value": 0, "unit": "rem"}},
+    "1": {"$value": {"value": 0.25, "unit": "rem"}},
+    "2": {"$value": {"value": 0.5, "unit": "rem"}},
+    "3": {"$value": {"value": 0.75, "unit": "rem"}},
+    "4": {"$value": {"value": 1, "unit": "rem"}},
+    "5": {"$value": {"value": 1.25, "unit": "rem"}},
+    "6": {"$value": {"value": 1.5, "unit": "rem"}},
+    "8": {"$value": {"value": 2, "unit": "rem"}},
+    "10": {"$value": {"value": 2.5, "unit": "rem"}},
+    "12": {"$value": {"value": 3, "unit": "rem"}},
+    "16": {"$value": {"value": 4, "unit": "rem"}}
+  },
+  "radius": {
+    "$type": "dimension",
+    "none": {"$value": {"value": 0, "unit": "px"}},
+    "sm": {"$value": {"value": 0.25, "unit": "rem"}},
+    "md": {"$value": {"value": 0.5, "unit": "rem"}},
+    "lg": {"$value": {"value": 1, "unit": "rem"}},
+    "full": {"$value": {"value": 9999, "unit": "px"}}
+  },
+  "border-width": {
+    "$type": "dimension",
+    "thin": {"$value": {"value": 1, "unit": "px"}},
+    "thick": {"$value": {"value": 2, "unit": "px"}}
+  },
+  "duration": {
+    "$type": "duration",
+    "fast": {"$value": {"value": 100, "unit": "ms"}},
+    "base": {"$value": {"value": 200, "unit": "ms"}},
+    "slow": {"$value": {"value": 300, "unit": "ms"}}
+  },
+  "easing": {
+    "$type": "cubicBezier",
+    "standard": {"$value": [0.2, 0, 0, 1]},
+    "decelerate": {"$value": [0, 0, 0, 1]},
+    "accelerate": {"$value": [0.3, 0, 1, 1]}
+  },
+  "shadow": {
+    "$type": "shadow",
+    "sm": {
+      "$value": {
+        "color": "{color.black-alpha.12}",
+        "offsetX": {"value": 0, "unit": "px"},
+        "offsetY": {"value": 1, "unit": "px"},
+        "blur": {"value": 2, "unit": "px"},
+        "spread": {"value": 0, "unit": "px"}
+      }
+    },
+    "md": {
+      "$value": [
+        {
+          "color": "{color.black-alpha.12}",
+          "offsetX": {"value": 0, "unit": "px"},
+          "offsetY": {"value": 2, "unit": "px"},
+          "blur": {"value": 4, "unit": "px"},
+          "spread": {"value": 0, "unit": "px"}
+        },
+        {
+          "color": "{color.black-alpha.24}",
+          "offsetX": {"value": 0, "unit": "px"},
+          "offsetY": {"value": 8, "unit": "px"},
+          "blur": {"value": 16, "unit": "px"},
+          "spread": {"value": -4, "unit": "px"}
+        }
+      ]
+    }
+  },
+  "z-index": {
+    "$type": "number",
+    "$description": "System constant; consumed directly, no semantic tier.",
+    "base": {"$value": 0},
+    "dropdown": {"$value": 1000},
+    "sticky": {"$value": 1100},
+    "overlay": {"$value": 1300},
+    "modal": {"$value": 1400},
+    "toast": {"$value": 1500}
+  },
+  "breakpoint": {
+    "$type": "number",
+    "$description": "Min-width in px as plain numbers: DTCG has no breakpoint type and custom properties cannot be used in media queries. The build or the CSS author writes them into @media / @container conditions.",
+    "sm": {"$value": 640},
+    "md": {"$value": 768},
+    "lg": {"$value": 1024},
+    "xl": {"$value": 1280}
+  }
+}

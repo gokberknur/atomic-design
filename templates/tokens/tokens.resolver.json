@@ -1,0 +1,79 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/resolver.json",
+  "name": "<product> design tokens",
+  "version": "2025.10",
+  "description": "Every theme permutation: brand x scheme x contrast x density (2 x 2 x 2 x 2 = 16). Brand swaps primitives only and density touches spacing roles only, so both are orthogonal. Contrast overlaps scheme on purpose: it comes after scheme in resolutionOrder and aliases other semantic roles, so it holds in either scheme.",
+  "sets": {
+    "semantic": {
+      "description": "Shared role contract, light scheme values.",
+      "sources": [{"$ref": "semantic.json"}]
+    },
+    "components": {
+      "description": "Component tokens; alias semantic roles only.",
+      "sources": [{"$ref": "components.json"}]
+    }
+  },
+  "modifiers": {
+    "brand": {
+      "description": "Primitive palette, type and shape per brand. Add one context per brand; paths must match across files.",
+      "contexts": {
+        "brand-a": [{"$ref": "primitives.brand-a.json"}],
+        "brand-b": [{"$ref": "primitives.brand-b.json"}]
+      },
+      "default": "brand-a"
+    },
+    "scheme": {
+      "description": "Color scheme. CSS delivers it with color-scheme + light-dark().",
+      "contexts": {
+        "light": [],
+        "dark": [{"$ref": "semantic.dark.json"}]
+      },
+      "default": "light"
+    },
+    "contrast": {
+      "description": "prefers-contrast: more. Promotes low-contrast roles to stronger roles.",
+      "contexts": {
+        "standard": [],
+        "more": [
+          {
+            "color": {
+              "text": {"muted": {"$value": "{color.text.default}"}},
+              "border": {"default": {"$value": "{color.border.strong}"}}
+            }
+          }
+        ]
+      },
+      "default": "standard"
+    },
+    "density": {
+      "description": "UI density. CSS delivers it with data-density, plus a container style query on --density.",
+      "contexts": {
+        "comfortable": [],
+        "compact": [
+          {
+            "space": {
+              "inset": {
+                "sm": {"$value": "{space.1}"},
+                "md": {"$value": "{space.2}"},
+                "lg": {"$value": "{space.3}"}
+              },
+              "gap": {
+                "md": {"$value": "{space.3}"},
+                "lg": {"$value": "{space.6}"}
+              }
+            }
+          }
+        ]
+      },
+      "default": "comfortable"
+    }
+  },
+  "resolutionOrder": [
+    {"$ref": "#/modifiers/brand"},
+    {"$ref": "#/sets/semantic"},
+    {"$ref": "#/sets/components"},
+    {"$ref": "#/modifiers/scheme"},
+    {"$ref": "#/modifiers/contrast"},
+    {"$ref": "#/modifiers/density"}
+  ]
+}

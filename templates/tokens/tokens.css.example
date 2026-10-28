@@ -1,0 +1,134 @@
+/*
+ * What the build writes to dist/tokens/ (trimmed to a few tokens per block).
+ * Reference for review only: never edit generated CSS, change the JSON and rebuild.
+ * Real output is two files: tokens.css (shared) + <brand>.css (primitives), loaded before
+ * any component CSS. Names below use no prefix; with PREFIX = '<prefix>' they become --<prefix>-….
+ */
+
+/* ---------- tokens.css ---------- */
+
+/* Layer order, declared once and first: later layers win regardless of specificity. */
+@layer reset, tokens, base, components, utilities;
+
+@layer tokens {
+  /* Scheme: follow the OS by default; data-theme pins a subtree (and the page via <html>). */
+  :root {
+    color-scheme: light dark;
+  }
+
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  /* Semantic + component tiers. Declared on :root AND every [data-brand] scope so their var()s
+     re-resolve against that scope's primitives. Plain light values first: browsers without
+     light-dark() would otherwise drop the whole value at use time. */
+  :where(:root, [data-brand]) {
+    --color-surface-default: var(--color-neutral-0);
+    --color-text-default: var(--color-neutral-900);
+    --color-action-background-primary-default: var(--color-accent-600);
+    --space-inset-md: var(--space-3);
+    --typography-label: var(--font-weight-medium) var(--font-size-087)/var(--font-line-height-tight) var(--font-family-sans);
+    --button-background-primary-default: var(--color-action-background-primary-default);
+    --button-padding-inline: var(--space-inset-md);
+  }
+
+  /* light-dark() picks per element from its used color-scheme, so [data-theme] needs no copies. */
+  @supports (color: light-dark(#fff, #000)) {
+    :where(:root, [data-brand]) {
+      --color-surface-default: light-dark(var(--color-neutral-0), var(--color-neutral-950));
+      --color-text-default: light-dark(var(--color-neutral-900), var(--color-neutral-50));
+      --color-action-background-primary-default: light-dark(var(--color-accent-600), var(--color-accent-400));
+    }
+  }
+
+  /* Fallback while light-dark() is only Newly Available under your browser policy. Dependents
+     (component tokens) are repeated so they re-resolve on the [data-theme] element. */
+  @supports not (color: light-dark(#fff, #000)) {
+    @media (prefers-color-scheme: dark) {
+      :where(:root, [data-brand]) {
+        --color-surface-default: var(--color-neutral-950);
+        --color-text-default: var(--color-neutral-50);
+        --button-background-primary-default: var(--color-action-background-primary-default);
+      }
+    }
+    [data-theme="dark"] {
+      --color-surface-default: var(--color-neutral-950);
+      --color-text-default: var(--color-neutral-50);
+      --button-background-primary-default: var(--color-action-background-primary-default);
+    }
+    [data-theme="light"] {
+      --color-surface-default: var(--color-neutral-0);
+      --color-text-default: var(--color-neutral-900);
+      --button-background-primary-default: var(--color-action-background-primary-default);
+    }
+  }
+
+  /* Contrast: promote weak roles to strong roles. Aliasing roles (not primitives) keeps it
+     correct in both schemes. */
+  @media (prefers-contrast: more) {
+    :where(:root, [data-brand]) {
+      --color-text-muted: var(--color-text-default);
+      --color-border-default: var(--color-border-strong);
+    }
+  }
+
+  /* Density. Style query first (CSS hook: `.data-grid { --density: compact }`, Newly Available,
+     progressive enhancement), then the attribute (markup hook, works everywhere) so a nested
+     data-density still wins on its own element. */
+  @container style(--density: compact) {
+    :where(*) {
+      --space-inset-md: var(--space-2);
+      --button-padding-inline: var(--space-inset-md);
+    }
+  }
+  :where([data-density="compact"]) {
+    --space-inset-md: var(--space-2);
+    --button-padding-inline: var(--space-inset-md);
+  }
+
+  /* Forced colors: the browser overrides most colors anyway; system colors here cover values it
+     does not force (shadows, gradients, SVG painted from tokens). From $extensions in semantic.json. */
+  @media (forced-colors: active) {
+    :where(:root, [data-brand]) {
+      --color-surface-default: Canvas;
+      --color-text-default: CanvasText;
+      --color-border-focus: Highlight;
+    }
+  }
+}
+
+/* ---------- brand-a.css (default brand: also on :root) ---------- */
+
+@layer tokens {
+  :root,
+  [data-brand="brand-a"] {
+    --color-neutral-0: oklch(1.0000 0.0000 0.00);
+    --color-accent-600: oklch(0.5200 0.2390 264.00);
+    --space-3: 0.75rem;
+    --font-family-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* ---------- brand-b.css (swaps primitives only; semantic names never change) ---------- */
+
+@layer tokens {
+  [data-brand="brand-b"] {
+    --color-neutral-0: oklch(1.0000 0.0000 0.00);
+    --color-accent-600: oklch(0.5200 0.1430 150.00);
+    --space-3: 0.75rem;
+    --font-family-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Usage in a component (components layer reads component or semantic tokens, never primitives):
+   @layer components {
+     .button { background: var(--button-background-primary-default); font: var(--button-typography);
+               padding-inline: var(--button-padding-inline); }
+   }
+   Markup: <html data-brand="brand-a"> … <section data-brand="brand-b" data-theme="dark" data-density="compact">
+   Put data-brand outermost on any element that also carries data-theme or data-density. */

@@ -1,0 +1,7 @@
+body { font-family: "Inter", Helvetica, Arial, sans-serif; color: #222; background: #fff; }
+h1 { font-size: 32px; font-weight: 700; margin: 0 0 16px; }
+h2 { font-size: 24px; font-weight: 600; margin-bottom: 12px; }
+a { color: #1a73e8; }
+.btn { padding: 8px 16px; border-radius: 4px; background: #1a73e8; color: #fff; font-size: 14px; }
+.btn-secondary { padding: 8px 16px; border-radius: 4px; background: #eee; color: #222; font-size: 14px; }
+.card { padding: 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.2); background: #ffffff; }

@@ -1,0 +1,8 @@
+.account h1 { font-size: 28px; font-weight: 600; }
+.account .button { padding: 8px 16px; border-radius: 4px; background: #1a73e8; color: #fff; }
+.account .btn-danger { padding: 8px 16px; border-radius: 4px; background: #d93025; color: #fff; }
+.account .panel { padding: 16px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.account .field { border: 1px solid #cccccc; border-radius: 4px; padding: 8px 10px; }
+.account .hint { color: #5f6368; font-size: 13px; }
+.account .avatar { width: 40px; height: 40px; border-radius: 50%; }
+@media (max-width: 800px) { .account { padding: 12px; } }

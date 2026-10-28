@@ -1,0 +1,56 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "Dark scheme overrides for semantic.json. Same paths, different aliases; list only tokens whose value changes. Every pair keeps the contrast its light twin promises.",
+  "color": {
+    "$type": "color",
+    "surface": {
+      "default": {"$value": "{color.neutral.950}"},
+      "subtle": {"$value": "{color.neutral.900}"},
+      "raised": {"$value": "{color.neutral.800}"},
+      "inverse": {"$value": "{color.neutral.50}"}
+    },
+    "text": {
+      "default": {"$value": "{color.neutral.50}"},
+      "muted": {"$value": "{color.neutral.400}"},
+      "inverse": {"$value": "{color.neutral.950}"},
+      "link": {"$value": "{color.accent.400}"}
+    },
+    "border": {
+      "default": {"$value": "{color.neutral.800}"},
+      "focus": {"$value": "{color.accent.400}"}
+    },
+    "action": {
+      "background": {
+        "primary": {
+          "default": {"$value": "{color.accent.400}"},
+          "hover": {"$value": "{color.accent.300}"},
+          "active": {"$value": "{color.accent.200}"},
+          "disabled": {"$value": "{color.neutral.800}"}
+        },
+        "secondary": {
+          "default": {"$value": "{color.neutral.800}"},
+          "hover": {"$value": "{color.neutral.700}"},
+          "active": {"$value": "{color.neutral.600}"}
+        }
+      },
+      "foreground": {
+        "primary": {"default": {"$value": "{color.neutral.950}"}},
+        "secondary": {"default": {"$value": "{color.neutral.50}"}}
+      }
+    },
+    "status": {
+      "foreground": {
+        "danger": {"$value": "{color.red.300}"},
+        "success": {"$value": "{color.green.300}"},
+        "warning": {"$value": "{color.amber.300}"},
+        "info": {"$value": "{color.blue.300}"}
+      },
+      "background": {
+        "danger": {"$value": "{color.red.900}"},
+        "success": {"$value": "{color.green.900}"},
+        "warning": {"$value": "{color.amber.900}"},
+        "info": {"$value": "{color.blue.900}"}
+      }
+    }
+  }
+}
