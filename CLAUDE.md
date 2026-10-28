@@ -23,6 +23,8 @@ governed, multi-brand, themed enterprise design system. Spine: Brad Frost's *Ato
 
 ## Accepted decisions
 
+Rationale and rejected alternatives for Q4, Q9, Q11, Q12: `docs/decisions/`.
+
 | # | Decision |
 |---|---|
 | Q1 | Public, generic skill. Never assumes a company or brand. Asks instead. |
